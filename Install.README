@@ -1,0 +1,94 @@
+java.net.RTP
+============
+
+Waqar Ali <wa48@columbia.edu>
+Akhil Nigam <anigam@lehman.com>
+
+-------------------- Introduction ------------------------------
+This file contains Installation and usage instructions for the
+Java package java.net.RTP.
+
+Supported Platforms:
+    JDK 1.1, 1.2beta2, Symantec Visual Cafe pro 1.1 JIT Compiler.
+
+
+-------------------- Installation ------------------------------
+
+Step 1: Unzipping the file
+---------------------------
+    Unzip the file java_net_RTP.tar.gz
+        gunzip java_net_RTP.tar.gz
+
+Step 2: Untar the archive
+-------------------------
+    Expand the tar file java_net_RTP.tar in a location pointed to
+by the CLASSPATH environment variable.  If you do not have
+permissions to write to the directory pointed to by the CLASSPATH
+variable then you can expand the directory structure in any other
+location making sure that you manually update the CLASSPATH
+variable to include that directory, following is an example
+
+    tar -vxf java_net_RTP.tar .
+    export CLASSPATH=$CLASSPATH:./
+                                                                                                  
+    The directory structure that results is as follows                                    
+
+    ./java/net/RTP
+    ./java/net/RTP/Packets
+
+    There are .java and .class files in these directory which can be
+individually compiled when required, or made all at once using the
+makefile in the root.
+	
+
+	The root level files RTPSessionInstantiator.java and .class is for
+testing the package installation.
+
+Step 3: A quick test
+--------------------
+    A sample usage of the package is implemented in the file
+contained in the zip file test.gz which contains
+RTPSessionInstantiator.java and .class.  To run it, do the following,
+
+    java RTPSessionInstantiator A
+
+    ( here A is an argument, what this means and what other arguments
+    are available, refer to the "Appendix" in this README)
+
+If the installation was OK then the execution should proceed
+without errors.  If there are problems, make sure that the
+root of java/net/RTP structure is pointed to by the CLASSPATH
+
+
+-------------------------  Appendix ------------------------------
+
+RTPSessionInstantiator:
+======================-
+	This program was used as a test executable throughout the development
+of the package and is included as a test utility to quickly test the
+installation.  It has following command line arguments
+
+	A 	Start all the RTP/RTCP sender and receiver threads and start sending
+		test RTP packets (1000 packets with 1 second interval)	
+
+	S	Start the RTP/RTCP senders only (Receivers are not started) and
+		send test RTP packets with parameters same as A
+
+	R	Start the RTP/RTCP receivers only (Senders are not started) and
+		do not send any test packets
+
+	AB n 
+		Same as A but send n packets instead of 1000 (used to test the
+		BYE packet transmission after nth packet)
+
+	LS	Start the executable as a Late Initialization Server on port 9000
+
+	LC hostname	
+		Start the executable as a Late Initialization Client and connect
+		to hostname (at port 9000) for initilization data
+
+Note that most of the parameters such as the mulicast group IP address, 
+RTP, RTCP and other send/receive ports etc. are all hardcoded in this
+java file and can be modified as needed.  This executable was not 
+intended to be of production quality so no error handling of argument types
+is provided.  

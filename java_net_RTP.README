@@ -1,0 +1,19 @@
+refactor by stephane metairie
+
+
+http://www.cs.columbia.edu/~hgs/teaching/ais/1998/projects/java_rtp/report.html
+
+JAVA.NET.RTP
+
+This package is an implementation of RFC 1889.  Usage documentation is
+available online at 
+
+	http://www.columbia.edu/~wa48/ais/proj_report/aisprojectreport.htm
+
+expand this package
+
+	tar -vxf java_net_RTP.tar .
+
+add the current path to CLASSPATH
+	
+	export CLASSPATH=$CLASSPATH:$PWD
